@@ -5,7 +5,6 @@ This package is specifically designed to scan credit/debit cards using an Androi
 
 This package will only work on Android and isn't available for iOS as of 2020  because Apple do not allow 3rd party iPhone apps to use the Core NFC framework.
 ## Getting started
-
 `$ npm install react-native-nfc-card-reader --save`
 ### For Gradle 7.0 and < 7.2 you can do:
 `npm install "https://github.com/jackbayliss/react-native-nfc-card-reader.git#gradle7.0" --save`
@@ -13,9 +12,18 @@ This package will only work on Android and isn't available for iOS as of 2020  b
 ### For Gradle 7.2 you can do:
 `npm install "https://github.com/jackbayliss/react-native-nfc-card-reader.git#gradle7.2" --save`
 
-### Mostly automatic installation
+> **NOTE:** After install this module, if you can not build your App, follow the below steps:
 
-`$ react-native link react-native-nfc-card-reader`
+```
+#optional (npm)
+npm uninstall react-native-cli
+npm uninstall react-native
+npm install react-native-cli
+npm install react-native
+#needed
+remove your all dependencies( node_modules directory. )
+And then, first of all, install this module (react-native-nfc-card-reader) before another dependencies.
+```
 
 ## Usage
 ```javascript
@@ -27,6 +35,12 @@ NfcCardReader.startNfc(function(cardDetails){
      that.setState({expiryDate : cardDetails.expiryDate})
      that.setState({cardType : cardDetails.cardType})
  })
+```
+
+> **NOTE:** if you are working on the project using typescript, follow the below steps.
+```
+1.Navigate into your root directory, Create a file named 'index.d.ts' <br>
+2.Add ' declare module"react-native-nfc-card-reader" ' into the file.
 ```
 Ensure you add the following to your `AndroidManifest.xml` located in `android\app\src\main`
 ```
